@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Belanosima&family=McLaren&family=Nunito&display=swap');
+
+:root {
+    --tools-bg: #313131;
+    --white: #eee;
+    --bg: #301934;
+}
+*{
+    font-family: 'Belanosima', sans-serif;
+}
+::selection {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    background-color: transparent;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--white);
+    background: url(blob-scene.svg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-align: center;
+    margin: 40px;
+}
+
+.settings-bar{
+    border-radius: 16px 16px 0 0;
+    background: var(--white);
+    font-weight: bold;
+    color: var(--bg);
+    padding: 10px;
+    width: fit-content;
+    gap: 30px;
+    margin: 0 auto ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.line-width-settings,.line-cap-settings {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.line-width,.line-cap {
+    opacity: 0;
+    z-index: -10;
+    position: absolute;
+}
+.line-width:checked~.fake-radio-button::after,
+.line-cap:checked~.fake-radio-button::after{
+    height: 100%;
+    width: 100%;
+}
+
+.fake-radio-button {
+    border: 1px solid silver;
+    padding: 1px;
+    border-radius: 50%;
+    background-color: var(--white);
+}
+.fake-radio-button::after{
+    content: '';
+    height: 0%;
+    width: 0%;
+    border-radius: 50%;
+    background-color: #313131;
+    transition: 100ms all ease;
+}
+.line-cap-settings div:nth-of-type(1) .fake-radio-button,
+.line-cap-settings div:nth-of-type(1) .fake-radio-button::after {
+    border-radius: 1px;
+}
+.line-width-settings div:nth-of-type(1) .fake-radio-button{
+    width: 8px;
+    height: 8px;
+}
+
+.line-width-settings div:nth-of-type(2) .fake-radio-button,
+.line-cap-settings .fake-radio-button {
+    width: 12px;
+    height: 12px;
+}
+
+.line-width-settings div:nth-of-type(3) .fake-radio-button {
+    width: 16px;
+    height: 16px;
+}
+
+.line-width-settings div:nth-of-type(4) .fake-radio-button {
+    width: 20px;
+    height: 20px;
+}
+
+.board {
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tools-container {
+    display: flex;
+    width: 60px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    color: var(--white);
+    border-radius: 3px;
+    padding: 10px;
+    margin: 5px;
+    gap: 12px;
+    /* background-color: var(--tools-bg); */
+
+
+    background: rgba(255, 255, 255, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.3px);
+    -webkit-backdrop-filter: blur(4.3px);
+    border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+input[type='radio'].tool {
+    position: absolute;
+    display: none;
+}
+
+input[type='color'] {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type='radio'].tool:checked~div {
+    height: 0;
+    position: absolute;
+    margin-top: -5px;
+    left: 5px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--bg);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    transition: 200ms all ease;
+    cursor: pointer;
+}
+/* to make clickable area bigger */
+label::before{
+    content: ' ';
+    padding: 0 10px;
+    width: 200%;
+}
+
+.tool-container {
+    display: flex;
+    padding: 5px;
+    gap: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'McLaren', sans-serif;
+}
+
+.tool-container:not(:last-child) {
+    border-bottom: 1px solid var(--white);
+}
+
+.arrow-pointer {
+    height: 0;
+    position: absolute;
+    left: 5px;
+}
+
+.canvas-container {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+canvas {
+    align-self: center;
+    border: 1px solid var(--white);
+    /* border: 1px solid gray; */
+    background-color: rgba(255, 255, 255, 0.493);
+    border-radius: 8px;
+}

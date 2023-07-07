@@ -4,9 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <title>Sketch Board</title>
 </head>
 <body>
+    <h1>Quick Sketch Board</h1>
+    <div class="settings-bar">
+        <div class="line-width-settings">
+            <div class="line-width-container">
+                <input class="line-width" type="radio" name="line" id="s">
+                <label class="fake-radio-button" for="s"></label>
+            </div>
+            <div class="line-width-container">
+                <input class="line-width" type="radio" name="line" id="m">
+                <label class="fake-radio-button" for="m"></label>
+            </div>
+            <div class="line-width-container">
+                <input class="line-width" type="radio" name="line" id="l">
+                <label class="fake-radio-button" for="l"></label>
+            </div>
+            <div class="line-width-container">
+                <input class="line-width" type="radio" name="line" id="xl">
+                <label class="fake-radio-button" for="xl"></label>
+            </div>
+            <span>
+                Line Width :
+            </span>
+
+        </div>
+        <div class="line-cap-settings">
+            <div class="line-cap-container">
+                <input class="line-cap" type="radio" name="line-cap" id="square">
+                <label class="fake-radio-button" for="square"></label>
+            </div>
+            <div class="line-cap-container">
+                <input class="line-cap" type="radio" name="line-cap" id="round">
+                <label class="fake-radio-button" for="round"></label>
+            </div>
+            <span>
+                Line Cap :
+            </span>
+        </div>
+    </div>
+
+    <div class="board">
+        <div class="tools-container">
+            <div class="tool-container">
+                <input class="tool" type="radio" name="tool" id="pen">
+                <div class="arrow-pointer"></div>
+                <label for="pen" class="fa-solid fa-pencil"></label>
+                <label for="pen">Pen</label>
+            </div>
+            <div class="tool-container">
+                <input class="tool" type="radio" name="tool" id="line">
+                <div class="arrow-pointer"></div>
+                <label for="line" class="fa-solid fa-slash"></label>
+                <label for="line">Line</label>
+            </div>
+            <div class="tool-container">
+                <label for="elipse" class="fa-regular fa-circle"></label>
+                <input class="tool" type="radio" name="tool" id="elipse">
+                <div class="arrow-pointer"></div>
+                <label for="elipse">Elipse</label>
+            </div>
+            <div class="tool-container">
+                <label for="rect" class="fa-regular fa-square"></label>
+                <input class="tool" type="radio" name="tool" id="rect">
+                <div class="arrow-pointer"></div>
+                <label for="rect">Rect</label>
+            </div>
+            <div class="tool-container">
+                <label for="erase" class="fa-solid fa-eraser"></label>
+                <input class="tool" type="radio" name="tool" id="erase">
+                <div class="arrow-pointer"></div>
+                <label for="erase">Eraser</label>
+            </div>
+            <div class="tool-container">
+                <label for="color" class="fa-solid fa-palette"></label>
+                <input type="color" name="color" id="color">
+                <label for="color">Color</label>
+            </div>
+        </div>
+        <div class="canvas-container">
+            <canvas></canvas>
+        </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
